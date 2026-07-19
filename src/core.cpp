@@ -8,6 +8,9 @@ Core::~Core() = default;
 
 void Core::initialize()
 {
+    moduleRegistry.initialize();
+    policyEngine.initialize();
+    auditLog.initialize();
 }
 
 }
