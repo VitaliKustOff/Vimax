@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Vimax Core
 
 **Vimax Core** — локальное модульное ядро для диалогового ИИ-помощника, который понимает намерение пользователя и подключает нужные доменные возможности: технологические процессы, запись к мастеру, календарь, уведомления, умный дом и другие модули.
@@ -33,7 +32,6 @@ ctest --test-dir build --output-on-failure
 ```
 
 Первая версия фиксирует контракты, маршрутизацию, безопасность и модульность. Реальные LLM, API и аппаратные адаптеры подключаются поверх интерфейсов.
-=======
 # Vimax
 
 > **People shouldn't have to learn software.  
@@ -377,4 +375,3 @@ Public APIs are expected to evolve before the first stable release.
 Business Source License 1.1 (temporary)
 
 The licensing model will be finalized before the first production release.
->>>>>>> a881ef82ecef2647090e1a22f8bc61f6640e1258
