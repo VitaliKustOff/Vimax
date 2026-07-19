@@ -1,9 +1,4 @@
-# Vimax Core
-
-Vimax — это не программа.
-
-Vimax — это среда исполнения человеческих намерений.
-
+# Vimax
 
 > **People shouldn't have to learn software.  
 > Software should understand people.**
@@ -12,7 +7,7 @@ Vimax — это среда исполнения человеческих нам
 
 ## What is Vimax?
 
-**Vimax** is a local-first modular runtime that transforms natural language into safe, auditable workflows.
+**Vimax** is a local-first platform that transforms human intent into safe, explainable and auditable actions.
 
 Instead of forcing people to learn applications, menus and interfaces, Vimax allows them to simply describe what they want.
 
@@ -24,7 +19,19 @@ Examples:
 - "Order rennet."
 - "Turn off the workshop lights."
 
-Vimax understands the user's intent, builds a safe execution plan, requests confirmation when required and delegates execution to the appropriate module.
+Vimax understands the user's intent, builds a safe execution plan and delegates execution to the appropriate modules and connectors.
+
+---
+
+# Why Vimax?
+
+Most software is built around applications.
+
+Vimax is built around human intentions.
+
+Applications are implementation details.
+
+Intent is the real interface.
 
 ---
 
@@ -42,15 +49,17 @@ Software adapts to humans.
 
 # Philosophy
 
-Vimax is **not** another automation framework.
+Vimax is not another automation framework.
 
-It is a universal runtime for real-world tasks.
+It is a platform for executing real-world tasks through natural conversation.
 
-The conversation is the interface.
+Conversation becomes the interface.
 
-The workflow is the execution model.
+Intent becomes the input.
 
-Modules provide domain knowledge.
+Workflows become the execution model.
+
+Modules provide domain expertise.
 
 Policies guarantee safety.
 
@@ -60,15 +69,15 @@ Policies guarantee safety.
 
 ### Conversation First
 
-Users describe goals.
+People describe goals.
 
-They don't search for applications.
+They don't search for software.
 
 ---
 
 ### Local First
 
-Critical functionality must continue working without cloud services.
+Critical functionality should work without cloud services.
 
 Cloud integration is optional.
 
@@ -78,19 +87,19 @@ Cloud integration is optional.
 
 Automation must never bypass safety.
 
-Every critical action requires the appropriate level of confirmation.
+Critical operations always require appropriate confirmation.
 
 ---
 
-### Explainable Decisions
+### Explainable Actions
 
-Every action performed by Vimax must be understandable.
+Every decision made by Vimax should be understandable.
 
-The system should always be able to answer:
+The system should always answer:
 
 - Why?
 - What happened?
-- What will happen next?
+- What happens next?
 
 ---
 
@@ -98,41 +107,41 @@ The system should always be able to answer:
 
 Vimax assists people.
 
-It never silently takes control.
+People always remain responsible for final decisions.
 
 ---
 
-### Modular Architecture
+### Modular By Design
 
-The Core knows nothing about cheese, booking, distillation or smart homes.
+The platform itself knows nothing about cheese, booking, brewing or smart homes.
 
-Those capabilities are provided by installable modules.
+Knowledge lives inside independent modules.
 
 ---
 
-# Architecture
+# Platform Architecture
 
 ```text
-                    User
-                      │
-                      ▼
-          Conversation Engine
-                      │
-                      ▼
-            Intent Resolver
-                      │
-                      ▼
-            Workflow Engine
-              ┌───────┴────────┐
-              ▼                ▼
-       Context Engine    Policy Engine
-              └───────┬────────┘
-                      ▼
-              Module Manager
-                      │
-      ┌───────────────┼────────────────┐
-      ▼               ▼                ▼
-   Cheese         Booking       Distillation
+                     User
+                       │
+                       ▼
+             Conversation Engine
+                       │
+                       ▼
+               Intent Resolver
+                       │
+                       ▼
+               Workflow Engine
+             ┌─────────┴─────────┐
+             ▼                   ▼
+      Context Engine      Policy Engine
+             └─────────┬─────────┘
+                       ▼
+                  Vimax Core
+                       │
+        ┌──────────────┼──────────────┐
+        ▼              ▼              ▼
+     Modules      Connectors         SDK
 ```
 
 ---
@@ -154,7 +163,7 @@ Those capabilities are provided by installable modules.
 
 # Modules
 
-Examples of independent Vimax modules:
+Examples of Vimax modules:
 
 - 🧀 Cheese
 - 🍺 Brewing
@@ -166,15 +175,30 @@ Examples of independent Vimax modules:
 - 🛒 Shopping
 - 📧 Email
 
-New modules can be added without modifying the Core.
+Modules extend the platform without changing the Core.
+
+---
+
+# Connectors
+
+Connectors integrate Vimax with external systems.
+
+Examples:
+
+- MQTT
+- Home Assistant
+- Google Calendar
+- Telegram
+- Email
+- REST APIs
 
 ---
 
 # Design Goals
 
 - Local-first
-- Modular
 - Explainable
+- Modular
 - Secure
 - Extensible
 - Offline-capable
@@ -184,7 +208,7 @@ New modules can be added without modifying the Core.
 
 # Example
 
-User:
+User
 
 ```text
 I want to make Gouda cheese.
@@ -223,7 +247,7 @@ Start Guided Process
 Module
 
 ```text
-Vimax Cheese
+Cheese Module
 ```
 
 ---
@@ -232,7 +256,6 @@ Vimax Cheese
 
 ## v0.1
 
-- Foundation
 - Core Runtime
 - Module Registry
 - Policy Engine
@@ -244,13 +267,13 @@ Vimax Cheese
 - Context Memory
 - SQLite
 - Plugin Manifest
-- Configuration System
+- Configuration
 
 ## v0.3
 
 - Workflow Engine
 - Scheduler
-- Notification Engine
+- Notifications
 
 ## v0.4
 
@@ -274,12 +297,17 @@ Production Ready
 # Repository Structure
 
 ```text
-apps/
-docs/
-include/
-modules/
-src/
-tests/
+apps/          Example applications
+
+docs/          Documentation
+
+include/       Public headers
+
+modules/       Domain modules
+
+src/           Vimax Core
+
+tests/         Unit & integration tests
 ```
 
 ---
@@ -294,7 +322,7 @@ tests/
 
 The architecture is under active development.
 
-Public APIs may change before the first stable release.
+Public APIs are expected to evolve before the first stable release.
 
 ---
 
@@ -304,7 +332,7 @@ Public APIs may change before the first stable release.
 >
 > **They should simply describe what they want to accomplish.**
 >
-> **Vimax takes care of the rest.**
+> **Vimax turns human intent into real-world actions.**
 
 ---
 
