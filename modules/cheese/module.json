@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "vimax.cheese",
+  "name": "Vimax Cheese",
+  "version": "0.1.0",
+  "intents": [
+    "cheese.start_batch"
+  ],
+  "capabilities": [
+    "recipes",
+    "ingredient_calculation",
+    "timers",
+    "batch_log"
+  ],
+  "permissions": [
+    "local_database",
+    "notifications"
+  ]
+}

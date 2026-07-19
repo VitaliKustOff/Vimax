@@ -1,0 +1,5 @@
+#include "vimax/core/simple_intent_resolver.hpp"
+#include <algorithm>
+#include <cctype>
+namespace {std::string lower_copy(std::string v){std::transform(v.begin(),v.end(),v.begin(),[](unsigned char c){return static_cast<char>(std::tolower(c));});return v;}bool any(const std::string&v,std::initializer_list<const char*> w){for(auto*s:w)if(v.find(s)!=std::string::npos)return true;return false;}}
+namespace vimax {Intent SimpleIntentResolver::resolve(const UserMessage&m) const{Intent r;r.raw_text=m.text;auto t=lower_copy(m.text);if(any(t,{"сыр","гауд","качот","чеддер"})){r.name="cheese.start_batch";r.confidence=.86;if(t.find("гауд")!=std::string::npos)r.slots["recipe"]="gouda";return r;}if(any(t,{"ногт","маникюр","запиш","мастер"})){r.name="booking.create";r.confidence=.82;if(t.find("марин")!=std::string::npos)r.slots["master"]="Кустова Марина";return r;}if(any(t,{"пиво","пивка","ipa","стаут"})){r.name="brewing.start_batch";r.confidence=.78;return r;}if(any(t,{"спирт","ректификац","дистилляц"})){r.name="distillation.start_process";r.confidence=.80;return r;}r.name="unknown";r.confidence=.1;return r;}}

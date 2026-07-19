@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "vimax.booking",
+  "name": "Vimax Booking",
+  "version": "0.1.0",
+  "intents": [
+    "booking.create"
+  ],
+  "capabilities": [
+    "availability_search",
+    "slot_reservation",
+    "reminders"
+  ],
+  "permissions": [
+    "calendar",
+    "notifications",
+    "contacts"
+  ]
+}
