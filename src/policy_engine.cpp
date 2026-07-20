@@ -1,2 +1,9 @@
 #include "vimax/core/policy_engine.hpp"
-namespace vimax {Action DefaultPolicyEngine::evaluate(Action a) const{if(a.risk==RiskLevel::critical)a.confirmation=ConfirmationMode::local_physical_confirmation;else if(a.risk==RiskLevel::high||a.risk==RiskLevel::medium)a.confirmation=ConfirmationMode::explicit_user_confirmation;return a;}bool DefaultPolicyEngine::may_execute(const Action&a,bool local,bool user) const{switch(a.confirmation){case ConfirmationMode::none:return true;case ConfirmationMode::explicit_user_confirmation:return user||local;case ConfirmationMode::local_physical_confirmation:return local;}return false;}}
+
+namespace vimax {
+
+void PolicyEngine::initialize()
+{
+}
+
+}

@@ -6,11 +6,13 @@ Core::Core() = default;
 
 Core::~Core() = default;
 
+
 void Core::initialize()
 {
     moduleRegistry.initialize();
     policyEngine.initialize();
-    auditLog.initialize();
+
+    auditLog = std::make_unique<JsonLinesAuditLog>("audit.jsonl");
 }
 
 }

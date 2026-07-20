@@ -1,8 +1,10 @@
 #pragma once
 
-#include "module_registry.hpp"
-#include "policy_engine.hpp"
-#include "audit_log.hpp"
+#include "vimax/core/module_registry.hpp"
+#include "vimax/core/policy_engine.hpp"
+#include "vimax/core/audit_log.hpp"
+
+#include <memory>
 
 namespace vimax {
 
@@ -17,7 +19,8 @@ public:
 private:
     ModuleRegistry moduleRegistry;
     PolicyEngine policyEngine;
-    AuditLog auditLog;
+
+    std::unique_ptr<JsonLinesAuditLog> auditLog;
 };
 
 }

@@ -1,5 +1,30 @@
 #pragma once
-#include "vimax/core/interfaces.hpp"
+
+#include "vimax/core/types.hpp"
+
 #include <filesystem>
 #include <mutex>
-namespace vimax {class JsonLinesAuditLog final:public IAuditLog{public:explicit JsonLinesAuditLog(std::filesystem::path);void record(const UserMessage&,const Intent&,const WorkflowPlan&,const std::vector<ActionResult>&) override;private:std::filesystem::path path_;std::mutex mutex_;};}
+#include <vector>
+
+namespace vimax {
+
+class JsonLinesAuditLog
+{
+public:
+
+    explicit JsonLinesAuditLog(std::filesystem::path path);
+
+    void record(
+        const UserMessage& message,
+        const Intent& intent,
+        const WorkflowPlan& plan,
+        const std::vector<ActionResult>& results
+    );
+
+private:
+
+    std::filesystem::path path_;
+    std::mutex mutex_;
+};
+
+}

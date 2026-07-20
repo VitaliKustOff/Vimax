@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-namespace {
+namespace vimax {
 
 std::string escape_json(const std::string& value) {
     std::string out;
